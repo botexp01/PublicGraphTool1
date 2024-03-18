@@ -13,9 +13,9 @@ const init_phones = [],// Optional. Which graphs to display on initial load. Not
       alt_tutorial = true,                          // Display a configurable frequency response guide below the graph
       site_url = '/',                               // URL of your graph "homepage"
       share_url = true,                             // If true, enables shareable URLs
-      watermark_text = "HarutoHiroki",              // Optional. Watermark appears behind graphs
-      watermark_image_url = "assets/images/haruto.svg", // Optional. If image file is in same directory as config, can be just the filename
-      page_title = "HarutoHiroki",                  // Optional. Appended to the page title if share URLs are enabled
+      watermark_text = "",              // Optional. Watermark appears behind graphs
+      watermark_image_url = "", // Optional. If image file is in same directory as config, can be just the filename
+      page_title = "FFCuties Graph Tool",                  // Optional. Appended to the page title if share URLs are enabled
       page_description = "View and compare frequency response graphs for earphones",
       accessories = true,                           // If true, displays specified HTML at the bottom of the page. Configure further below
       externalLinksBar = true,                      // If true, displays row of pill-shaped links at the bottom of the page. Configure further below
@@ -88,7 +88,7 @@ function watermark(svg) {
         .attr("opacity",0.2)
         .append("text")
         .attrs({x:765, y:314, "font-size":10, "text-anchor":"end", "class":"site_name"})
-        .text("graphtool.harutohiroki.com");
+        .text("Clone IEC60318-4");
 }
 
 
@@ -207,25 +207,25 @@ setupGraphAnalytics();
 
 
 // If alt_header is enabled, these are the items added to the header
-let headerLogoText = "HarutoHiroki",
-    headerLogoImgUrl = "assets/images/haruto.svg",
+let headerLogoText = "FFCuties",
+    headerLogoImgUrl = "assets/images/cringraph-logo.svg",
     headerLinks = [
-    {
-        name: "Home",
-        url: "https://harutohiroki.com"
-    },
-    {
-        name: "Ranking",
-        url: "https://docs.google.com/spreadsheets/d/1DZTac1BxCLdmS2J4DDQyvKSVUZGnNhz2r86qMGcs_Jo/edit?pli=1#gid=330037169"
-    },
-    {
-        name: "Discord",
-        url: "https://discord.harutohiroki.com"
-    },
-    {
-        name: "Donate",
-        url: "https://www.paypal.me/harutohirokiUS"
-    },
+    // {
+    //     name: "Home",
+    //     url: "https://harutohiroki.com"
+    // },
+    // {
+    //     name: "Ranking",
+    //     url: "https://docs.google.com/spreadsheets/d/1DZTac1BxCLdmS2J4DDQyvKSVUZGnNhz2r86qMGcs_Jo/edit?pli=1#gid=330037169"
+    // },
+    // {
+    //     name: "Discord",
+    //     url: "https://discord.harutohiroki.com"
+    // },
+    // {
+    //     name: "Donate",
+    //     url: "https://www.paypal.me/harutohirokiUS"
+    // },
 //  {
 //      name: "GitHub",
 //      url: "https://github.com/HarutoHiroki"

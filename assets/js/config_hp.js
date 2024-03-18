@@ -1,5 +1,5 @@
 // Configuration options
-const init_phones = ["IEF Neutral Target"],                             // Optional. Which graphs to display on initial load. Note: Share URLs will override this set
+const init_phones = ["Sennheiser HD600"],                             // Optional. Which graphs to display on initial load. Note: Share URLs will override this set
       DIR = "data_hp/",                                // Directory where graph files are stored
       default_channels = ["L","R"],                 // Which channels to display. Avoid javascript errors if loading just one channel per phone
       default_normalization = "dB",                 // Sets default graph normalization mode. Accepts "dB" or "Hz"
@@ -13,9 +13,9 @@ const init_phones = ["IEF Neutral Target"],                             // Optio
       alt_tutorial = true,                          // Display a configurable frequency response guide below the graph
       site_url = '/',                               // URL of your graph "homepage"
       share_url = true,                             // If true, enables shareable URLs
-      watermark_text = "HarutoHiroki",              // Optional. Watermark appears behind graphs
-      watermark_image_url = "assets/images/haruto.svg",   // Optional. If image file is in same directory as config, can be just the filename
-      page_title = "HarutoHiroki",                  // Optional. Appended to the page title if share URLs are enabled
+      watermark_text = "",              // Optional. Watermark appears behind graphs
+      watermark_image_url = "",   // Optional. If image file is in same directory as config, can be just the filename
+      page_title = "FFCuties Graph Tool",                  // Optional. Appended to the page title if share URLs are enabled
       page_description = "View and compare frequency response graphs for headphones.",
       accessories = true,                           // If true, displays specified HTML at the bottom of the page. Configure further below
       externalLinksBar = true,                      // If true, displays row of pill-shaped links at the bottom of the page. Configure further below
@@ -40,8 +40,8 @@ const init_phones = ["IEF Neutral Target"],                             // Optio
 // Specify which targets to display
 const targets = [
     { type:"Neutral",    files:["KEMAR DF", "IEF Neutral"] },
-    { type:"Community",   files:["Listener Tilt 711"] },
-    { type:"Preference", files:["Harman Combined", "Harman 2018 OE", "Harman 2015 OE", "Harman 2013 OE"] }
+    // { type:"Community",   files:["Listener Tilt 711"] },
+    { type:"Preference", files:["Harman Combined", "Harman 2013", "Harman 2015", "Harman 2018"] }
 ];
 
 // Haruto's Addons
@@ -49,8 +49,8 @@ const  preference_bounds = "assets/images/bounds.png", // Preference bounds imag
        PHONE_BOOK = "phone_book_hp.json",            // Phone book file path & name
        default_DF_name = "KEMAR DF",                 // Default RAW DF name
        dfBaseline = false,                           // If true, DF is used as baseline when custom df tilt is on
-       default_bass_shelf = 8,                      // Default Custom DF bass shelf value
-       default_tilt = -0.8,                         // Default Custom DF tilt value
+       default_bass_shelf = 0,                      // Default Custom DF bass shelf value
+       default_tilt = -1,                         // Default Custom DF tilt value
        default_ear = 0,                             // Default Custom DF ear gain value
        default_treble = 0,                          // Default Custom DF treble gain value
        tiltableTargets = ["KEMAR DF"];               // Targets that are allowed to be tilted
@@ -90,7 +90,7 @@ function watermark(svg) {
         .attr("opacity",0.2)
         .append("text")
         .attrs({x:765, y:314, "font-size":10, "text-anchor":"end", "class":"site_name"})
-        .text("graphtool.harutohiroki.com");
+        .text("Clone KB501X + Clone IEC60318-4");
 }
 
 
@@ -221,29 +221,29 @@ setupGraphAnalytics();
 
 
 // If alt_header is enabled, these are the items added to the header
-let headerLogoText = "HarutoHiroki",
-    headerLogoImgUrl = "assets/images/haruto.svg",
+let headerLogoText = "FFCuties",
+    headerLogoImgUrl = "assets/images/cringraph-logo.svg",
     headerLinks = [
-    {
-        name: "Home",
-        url: "https://harutohiroki.com"
-    },
-    {
-        name: "Ranking",
-        url: "https://docs.google.com/spreadsheets/d/1DZTac1BxCLdmS2J4DDQyvKSVUZGnNhz2r86qMGcs_Jo/edit?pli=1#gid=330037169"
-    },
-    {
-        name: "Discord",
-        url: "https://discord.harutohiroki.com"
-    },
-    {
-        name: "Donate",
-        url: "https://www.paypal.me/harutohirokiUS"
-    },
-//  {
-//      name: "GitHub",
-//      url: "https://github.com/HarutoHiroki"
-//  },
+    // {
+    //     name: "Home",
+    //     url: "https://harutohiroki.com"
+    // },
+    // {
+    //     name: "Ranking",
+    //     url: "https://docs.google.com/spreadsheets/d/1DZTac1BxCLdmS2J4DDQyvKSVUZGnNhz2r86qMGcs_Jo/edit?pli=1#gid=330037169"
+    // },
+    // {
+    //     name: "Discord",
+    //     url: "https://discord.harutohiroki.com"
+    // },
+    // {
+    //     name: "Donate",
+    //     url: "https://www.paypal.me/harutohirokiUS"
+    // },
+    //  {
+    //      name: "GitHub",
+    //      url: "https://github.com/HarutoHiroki"
+    //  },
 ];
 
 // Source: https://www.teachmeaudio.com/mixing/techniques/audio-spectrum
